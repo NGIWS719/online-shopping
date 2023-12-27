@@ -25,7 +25,7 @@ public class UserController {
     public Result userInfo(HttpServletRequest request){
         return userService.userInfo(request);
     }
-    @PostMapping("/logout")
+    @PostMapping("logout")
     public Result logout(HttpServletRequest request){
         // TODO 实现登出功能
         return userService.userLogout(request);
