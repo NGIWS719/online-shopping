@@ -12,7 +12,7 @@ public class Order {
     private long expressCompanyId;
     private String deliveryLocation;
     private String userLocation;
-    private Timestamp datetime;
+    private Timestamp time;
     private char status;
 
 
@@ -80,12 +80,12 @@ public class Order {
         this.userLocation = userLocation;
     }
 
-    public Timestamp getDatetime() {
-        return datetime;
+    public Timestamp getTime() {
+        return time;
     }
 
-    public void setDatetime(Timestamp datetime) {
-        this.datetime = datetime;
+    public void setTime(Timestamp time) {
+        this.time = time;
     }
 
     public char getStatus() {
@@ -96,7 +96,7 @@ public class Order {
         this.status = status;
     }
 
-    public Order(long id, long goodsId, long userId, long userAddressId, long shopId, long expressCompanyId, String deliveryLocation, String userLocation, Timestamp datetime, char status) {
+    public Order(long id, long goodsId, long userId, long userAddressId, long shopId, long expressCompanyId, String deliveryLocation, String userLocation, Timestamp time, char status) {
         this.id = id;
         this.goodsId = goodsId;
         this.userId = userId;
@@ -105,7 +105,7 @@ public class Order {
         this.expressCompanyId = expressCompanyId;
         this.deliveryLocation = deliveryLocation;
         this.userLocation = userLocation;
-        this.datetime = datetime;
+        this.time = time;
         this.status = status;
     }
 
@@ -124,7 +124,7 @@ public class Order {
                 ", expressCompanyId=" + expressCompanyId +
                 ", deliveryLocation='" + deliveryLocation + '\'' +
                 ", userLocation='" + userLocation + '\'' +
-                ", datetime=" + datetime +
+                ", datetime=" + time +
                 ", status=" + status +
                 '}';
     }

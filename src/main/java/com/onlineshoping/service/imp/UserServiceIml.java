@@ -3,6 +3,7 @@ package com.onlineshoping.service.imp;
 import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTUtil;
 import com.onlineshoping.dto.Result;
+import com.onlineshoping.dto.TokenDto;
 import com.onlineshoping.mapper.UserMapper;
 import com.onlineshoping.pojo.User;
 import com.onlineshoping.service.IUserService;
@@ -55,7 +56,7 @@ public class UserServiceIml implements IUserService {
             user.setTelephone(phone);
             user.setPassword(password);
             userMapper.InsertUser(user);
-            return Result.ok(createJwtByUser(user));
+            return Result.ok(new TokenDto(createJwtByUser(user)));
         }
         return Result.fail("用户已存在");
     }

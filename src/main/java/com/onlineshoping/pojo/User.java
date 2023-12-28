@@ -3,8 +3,27 @@ package com.onlineshoping.pojo;
 //用户表
 public class User {
     private Long id;
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
     private String nickname;
+    private String avatar;
     private String name;
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     private String telephone;
     private String password;
 
@@ -47,6 +66,18 @@ public class User {
         return telephone;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", name='" + name + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
@@ -59,14 +90,4 @@ public class User {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nickName='" + nickname + '\'' +
-                ", name='" + name + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

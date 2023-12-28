@@ -9,14 +9,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/shopCart/")
+@RequestMapping("/shop_cart/")
+@CrossOrigin(origins ="*")   // 解决跨域问题
 public class ShopCartController {
     @Resource
     IShopCartService shopCartService;
 
     @GetMapping("get")
     public Result selectShopCartByUserId(HttpServletRequest request){
-        long id = Long.valueOf(String.valueOf(request.getParameter("id")));
+//        获取用户id
+        String userId = request.getParameter("userId");
+        long id = Long.parseLong(userId);
         return shopCartService.selectListShopCart(id);
     }
 

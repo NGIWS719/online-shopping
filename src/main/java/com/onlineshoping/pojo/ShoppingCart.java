@@ -2,9 +2,14 @@ package com.onlineshoping.pojo;
 
 //购物车表
 public class ShoppingCart {
+    private long id;
     private long goodsId;
     private long userId;
     private int number;
+
+    public long getId() {
+        return id;
+    }
 
     public long getGoodsId() {
         return goodsId;
@@ -30,7 +35,8 @@ public class ShoppingCart {
         this.number = number;
     }
 
-    public ShoppingCart(long goodsId, long userId, int number) {
+    public ShoppingCart(long id, long goodsId, long userId, int number) {
+        this.id = id;
         this.goodsId = goodsId;
         this.userId = userId;
         this.number = number;

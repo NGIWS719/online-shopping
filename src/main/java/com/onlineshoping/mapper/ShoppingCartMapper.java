@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface ShoppingCartMapper {
 
-    //打印购物车信息
-    @Select("select goods_id,user_id,number from shopping_cart where user_id = #{id}")
-    public List<ShoppingCart> SelectShopCartById(long id);
+    //查询购物车信息
+    @Select("select id, goods_id,user_id,number from shopping_cart where user_id = #{userId}")
+    public List<ShoppingCart> SelectShopCartById(long userId);
     //查询单个购物车
     @Select("select goods_id,user_id,number from shopping_cart where user_id=#{userId} and goods_id=#{goodsId} ")
     public ShoppingCart SelectShopCartByIdGoodsId(long userId,long goodsId);

@@ -47,11 +47,13 @@ public class ShopCartService implements IShopCartService {
     @Override
     public Result addGoods(HttpServletRequest request) {
         String goodsIdTemp = request.getParameter("goodsId");
+        String id = request.getParameter("id");
+        long cartId = Long.valueOf(id);
         long goodsId = Long.valueOf(goodsIdTemp);
         long userId =jwtGetUserId(request);
         int number =Integer.valueOf(request.getParameter("number"));
         if(shoppingCartMapper.SelectUserGoods(goodsId,userId)==null){
-            ShoppingCart shoppingCart = new ShoppingCart(goodsId,userId,1);
+            ShoppingCart shoppingCart = new ShoppingCart(cartId, goodsId,userId,1);
             shoppingCartMapper.InsertItem(shoppingCart);
         }else {
             shoppingCartMapper.AddItemNumber(userId,goodsId,number);

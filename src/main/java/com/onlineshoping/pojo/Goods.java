@@ -5,6 +5,7 @@ public class Goods {
     private long id;
     private String name;
     private double price;
+    private String imgUrl;
     private String description;
     private long shopId;
 
@@ -18,6 +19,14 @@ public class Goods {
 
     public String getName() {
         return name;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
     }
 
     public void setName(String name) {
@@ -48,10 +57,11 @@ public class Goods {
         this.shopId = shopId;
     }
 
-    public Goods(long id, String name, double price, String description, long shopId) {
+    public Goods(long id, String name, double price, String imgUrl, String description, long shopId) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.imgUrl = imgUrl;
         this.description = description;
         this.shopId = shopId;
     }
@@ -66,6 +76,7 @@ public class Goods {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", description='" + description + '\'' +
                 ", shopId=" + shopId +
                 '}';
