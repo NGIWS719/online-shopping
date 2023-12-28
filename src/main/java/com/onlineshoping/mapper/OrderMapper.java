@@ -12,12 +12,12 @@ import java.util.List;
 public interface OrderMapper {
 
 //        查询某个用户的所有订单
-        @Select("select * from order where userId=#{userid}")
-        public List<?> selectOrderByUserId(long userid);
+        @Select("select * from `order` where user_id=#{userId}")
+        public List<Order> selectOrderByUserId(long userId);
 
 //        查询某个订单的详细信息
-        @Select("select * from order where orderId=#{orderid}")
-        public Order selectOrderDetail(long orderid);
+        @Select("select * from `order` where id=#{orderId}")
+        public Order selectOrderDetail(long orderId);
 
         @Insert("")
         public void insertOrder(Order order);

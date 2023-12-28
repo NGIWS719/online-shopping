@@ -3,11 +3,18 @@ package com.onlineshoping.mapper;
 import com.onlineshoping.pojo.Goods;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface GoodsMapper {
+
+    // 查询所有商品
+    @Select("select * from goods")
+    public List<Goods> getAllGoods();
+
     //根据指定的商品 名称 来查询相应的商品信息
-    @Select("select id,shop_id,name,price,image,description from Goods where name = #{name}")
-    public Goods SelectByName(String name);
+    @Select("select id,shop_id,name,price,image,description from Goods where name like CONCAT('%',#{name},'%')")
+    public List<Goods> SelectByName(String name);
 
     @Select("select id,shop_id,name,price,image,description from Goods where id = #{id}")
     public Goods SelectById(long id);
@@ -17,6 +24,8 @@ public interface GoodsMapper {
     //根据指定的商品 描述 来查询相应的商品信息
     @Select("select id,shop_id,name,price,image,description from goods where description like '%#{description}%'")
     public Goods SelectByDescription(String description);
+
+
     //根据指定的商品 所在地（即发货地） 来查询相应的商品信息
     @Select("select id,shop_id,name,price,image,description from goods where location like '%#{location}%'")
     public Goods SelectByLocation(String location);

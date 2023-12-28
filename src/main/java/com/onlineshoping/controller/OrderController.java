@@ -13,7 +13,6 @@ public class OrderController {
     IOrderService orderService;
     @GetMapping("/get_orders")
     public Result ordersGet(HttpServletRequest request) {
-        System.out.println(1111);
         return orderService.getOrders(request);
     }
     @GetMapping("/order_detail")

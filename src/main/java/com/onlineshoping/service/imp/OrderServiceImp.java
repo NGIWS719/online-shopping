@@ -11,13 +11,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderService implements IOrderService {
+public class OrderServiceImp implements IOrderService {
     @Resource
     OrderMapper orderMapper;
     public Result getOrders(HttpServletRequest request) {
         String userId = request.getParameter("userId");
         long id = Long.parseLong(userId);
-        List<?> orders = orderMapper.selectOrderByUserId(id);
+        List<Order> orders = orderMapper.selectOrderByUserId(id);
         return Result.ok(orders);
     }
 
